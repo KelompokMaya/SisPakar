@@ -8,13 +8,13 @@
             if (empty($_SESSION)) { ?>
                 <ul class="sidebar-menu">
                   <li class="treeview">
-                        <a href="login.php">
+                        <a href="../login.php">
                            <span>KONSULTASI</span>
                         </a> 
                   </li>
-                  <li class="treeview">
-                        <a href="login.php">
-                           <span>menu 1</span>
+                  <li class=" active treeview">
+                        <a href="asana.php">
+                           <span>TEKNIK ASANA</span>
                         </a>
                   </li>
                   <li class="treeview">
@@ -40,13 +40,13 @@
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
                      <li class=" treeview">
-                                    <a href="index.php">
+                                    <a href="../index.php">
                                        <span>KONSULTASI</span>
                                     </a> 
                               </li>
                               <li class="active treeview">
                                     <a href="asana.php">
-                                       <span>menu 1</span>
+                                       <span>TEKNIK ASANA</span>
                                     </a>
                               </li>
                               <li class="treeview">
@@ -88,24 +88,35 @@
       </ol>
     </section>
 
-    <!-- Main content -->
-    <section  class="content">
-      <div class="row">
-        <div class="col-xs-12">
+
+
+<!-- Main content -->
+    <section   class="content">
+      <!-- Small boxes (Stat box) -->
+      <div  class="row">
+        
+       
+        <?php
+        if(!isset($_GET["view"]))
+            {
+              
+              ?>
+               <div class="col-xs-12">
          
 
           <div class="box">
             
             <!-- /.box-header -->
             <div class="box-body">
-              <table style="font-size: 12px"  id="example1" class="table table-bordered table-striped">
+
+              <table style="font-size: 15px"  id="example1" class="table table-bordered table-striped">
                 <thead style="text-align: center; background: #3c8dbc ;color: white">
                 <tr>
                   <th width="20px">No</th>
                   <th>Nama</th>
-                  <th>Teknik</th>
-                  <th  >Gambar</th>
-                  <th  >Deskripsi</th>
+                  <th>Posisi</th>
+                  <th>Manfaat</th>
+                  <th>Gambar/Video</th>
                 </tr>
                 </thead>
                 <tbody >
@@ -113,16 +124,17 @@
                 <tr>
                   <td>1</td>
                   <td> DS browser</td>
-                  <td>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. </td>
+                  <td>Berdiri </td>
+                   <td>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. </td>
                   <td style="text-align: center"><a href="#" class="btn btn-sm btn-info" id="detail"  ><span  aria-hidden="true"></span> Lihat </a></td>
-                  <td style="text-align: center"><a href="#" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
+                  
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Konqureror 3.1</td>
-                  <td>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone.</td>
-                  <td style="text-align: center"><a href="#" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
-                  <td style="text-align: center"><a href="#" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
+                  <td>Duduk</td>
+                   <td>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. </td>
+                  <td style="text-align: center"><a href="asana.php?view=<?php echo 1?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
                 </tr>
                 
                 </tbody>
@@ -134,12 +146,45 @@
           <!-- /.box -->
           
         </div>
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
+                
+
+          <?php } 
+                  else
+                      {
+                
+                        $view=$_GET["view"];
+                        $sql  = mysqli_query($koneksi, "SELECT * FROM data_penyakit WHERE id = '$view' ");
+                        $row = mysqli_fetch_array($sql);
+                        ?>
+                          <div class="col-xs-12">
+         
+
+                                  <div class="box ">
+                                    <div class="box-header with-border">
+                                              <h3 class="box-title">Video bla bla</h3>
+                                            </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body text-center">
+                                      
+                                      <div class="video">
+                                                <iframe width="560" height="315" src="http://www.youtube.com/embed/lGk75O18xyY" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                    </div>
+                                    <!-- /.box-body -->
+                                    </div>
+                                  <!-- /.box 
+                        echo substr("Hello world",6); -->
+                                  
+                                </div>
+                        <?php  } ?>
+
+                     
+                    
+                  
+               
+             
+            </section>
+   
   </div>
 
 
@@ -152,14 +197,14 @@
         
       </div>
       <div class="modal-body">
-      <img src="Images/tes.jpg" width="100%" />
+      <img src="../Images/tes.jpg" width="100%" />
       </div>
     </div>
   </div>
 </div>
 
 <!-- jQuery 2.2.3 -->
-<script src="template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../template/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
 <script>
       $(document).ready(function(){

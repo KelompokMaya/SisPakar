@@ -15,8 +15,8 @@
                         </a> 
                   </li>
                   <li class="treeview">
-                        <a href="login.php">
-                           <span>menu 1</span>
+                        <a href="teknik/asana.php">
+                           <span>TEKNIK ASANA</span>
                         </a>
                   </li>
                   <li class="treeview">
@@ -47,8 +47,8 @@
                                     </a> 
                               </li>
                               <li class="treeview">
-                                    <a href="asana.php">
-                                       <span>menu 1</span>
+                                    <a href="teknik/asana.php">
+                                       <span>TEKNIK ASANA</span>
                                     </a>
                               </li>
                               <li class="treeview">
