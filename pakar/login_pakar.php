@@ -7,15 +7,15 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="template/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../template/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="template/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../template/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="template/plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="../template/plugins/iCheck/square/blue.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,16 +25,16 @@
   <![endif]-->
 </head>
 
-<body class="hold-transition login-page">
+<body style="background-color: #4e7ce0;"  class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
     <a href="#"><b>SISTEM</b>PAKAR</a>
   </div>
   <!-- /.login-logo -->
-  <div class="login-box-body">
+  <div style="color: black" class="login-box-body">
     <p class="login-box-msg">Silakan Masuk </p>
 
-    <form role="form" action="proses/proses_login.php" method="post">
+    <form  role="form" action="proses/proses_login.php" method="post">
       <div class="form-group has-feedback">
         <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -47,19 +47,12 @@
         
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Masuk</button>
+          <button type="submit" name="login" class="btn btn-success btn-block btn-flat">Masuk</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
-    <div class="social-auth-links text-center">
-        
-          <a href="pakar/login_pakar.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-user"></i> Masuk Sebagai Pakar</a>
-          
-        </div>
 
-    
-    <a href="register.php" class="text-center">Daftar menjadi member</a>
 
   </div>
   <!-- /.login-box-body -->
@@ -67,19 +60,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery 2.2.3 -->
-<script src="template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../template/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="template/bootstrap/js/bootstrap.min.js"></script>
+<script src="../template/bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
-<script src="template/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
-</script>
+<script src="../template/plugins/iCheck/icheck.min.js"></script>
+
 </body>
 </html>

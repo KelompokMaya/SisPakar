@@ -40,24 +40,22 @@ session_start();
 
 <style type="text/css">
   .video {
+  text-align: center;
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 20px;
   height: 0;
   overflow: hidden;
 }
-/***
-* @author Brad Dalton - WP Sites
-* @link http://wpsites.net/wordpress-tips/embed-videos-responsive/
-***/
+
 .video iframe,  
 .video object,  
 .video embed {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
 }
 </style>
 

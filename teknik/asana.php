@@ -121,21 +121,26 @@
                 </thead>
                 <tbody >
                 
-                <tr>
-                  <td>1</td>
-                  <td> DS browser</td>
-                  <td>Berdiri </td>
-                   <td>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. </td>
-                  <td style="text-align: center"><a href="#" class="btn btn-sm btn-info" id="detail"  ><span  aria-hidden="true"></span> Lihat </a></td>
-                  
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Konqureror 3.1</td>
-                  <td>Duduk</td>
-                   <td>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. </td>
-                  <td style="text-align: center"><a href="asana.php?view=<?php echo 1?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
-                </tr>
+                <?php
+                                
+                $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='2' ");
+                 $no = 1;
+                  while($row = mysqli_fetch_assoc($sql)){
+
+                    ?>
+                              <tr>
+                                  <td ><?php echo $no?></td>
+                                  <td ><?php echo $row['nama'];?></td>
+                                  <td ><?php echo $row['posisi'];?></td>
+                                  <td ><?php echo $row['manfaat'];?></td>
+                                  
+                                  <td style="text-align: center;width: 20px;"><a href="asana.php?view=<?php echo $row['id'];?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
+                            </tr>
+                          <?php
+                           $no++;
+                      
+                  }
+                  ?>
                 
                 </tbody>
                 
@@ -153,30 +158,47 @@
                       {
                 
                         $view=$_GET["view"];
-                        $sql  = mysqli_query($koneksi, "SELECT * FROM data_penyakit WHERE id = '$view' ");
-                        $row = mysqli_fetch_array($sql);
-                        ?>
-                          <div class="col-xs-12">
+                        
+
+                 $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE id='$view' ");
+                 
+                  $row = mysqli_fetch_assoc($sql); 
+
+                    ?>
+                              <div class="col-xs-12">
          
 
-                                  <div class="box ">
+                                  <div class="box box-danger">
                                     <div class="box-header with-border">
-                                              <h3 class="box-title">Video bla bla</h3>
+                                              <h3 ><b style="display: flex; justify-content: center;"><?= $row['nama'];?></b> </h3>
                                             </div>
                                     <!-- /.box-header -->
                                     <div class="box-body text-center">
-                                      
+                                      <?php if ($row['video']!='') {
+                                       ?>
                                       <div class="video">
-                                                <iframe width="560" height="315" src="http://www.youtube.com/embed/lGk75O18xyY" frameborder="0" allowfullscreen></iframe>
+                                                <iframe  src="http://www.youtube.com/embed/<?= $row['video'];?>" frameborder="0" allowfullscreen></iframe>
                                                 </div>
+                                      <?php }  ?>
+                                      <a target="_blank" href="../Images/teknik/asana/<?= $row['gambar'];?>">
+                                         <img style="max-width:70%;"  src="../Images/teknik/asana/<?= $row['gambar'];?>"  />
+                                      </a>
+
+                                                
                                     </div>
+
                                     <!-- /.box-body -->
                                     </div>
                                   <!-- /.box 
                         echo substr("Hello world",6); -->
                                   
                                 </div>
-                        <?php  } ?>
+                          <?php
+                          
+                      
+                  
+                  }
+                  ?>
 
                      
                     
