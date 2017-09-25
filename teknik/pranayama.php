@@ -12,15 +12,15 @@
                            <span>KONSULTASI</span>
                         </a> 
                   </li>
-                  <li class=" active treeview">
+                  <li class="  treeview">
                         <a href="asana.php">
                            <span>TEKNIK ASANA</span>
                         </a>
                   </li>
-                  <li class="treeview">
+                  <li class="active treeview">
                         <a href="pranayama.php">
-                           <span>TEKNIK PRANAYAMA</span>  
-                           </a>     
+                           <span>TEKNIK PRANAYAMA</span>        
+                        </a>     
                   </li>
                   <li class="treeview">
                         <a href="login.php">
@@ -44,14 +44,14 @@
                                        <span>KONSULTASI</span>
                                     </a> 
                               </li>
-                              <li class="active treeview">
+                              <li class=" treeview">
                                     <a href="asana.php">
                                        <span>TEKNIK ASANA</span>
                                     </a>
                               </li>
-                              <li class="treeview">
-                                   <a href="pranayama.php">
-                                       <span>TEKNIK PRANAYAMA</span>      
+                              <li class="active treeview">
+                                    <a href="pranayama.php">
+                                       <span>TEKNIK PRANAYAMA</span>        
                                     </a>     
                               </li>
                               <li class="treeview">
@@ -79,7 +79,7 @@
     <section class="content-header">
       <h1>
         Teknik
-        <small>Asana</small>
+        <small>Pranayama</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -104,13 +104,13 @@
                <div class="col-xs-12">
          
 
-          <div class="box box-success">
+          <div class="box box-danger">
             
-            <!-- /.box-header #3c8dbc -->
+            <!-- /.box-header -->
             <div class="box-body">
 
               <table style="font-size: 15px"  id="example1" class="table table-bordered table-striped">
-                <thead style="text-align: center; background:green ;color: white">
+                <thead style="text-align: center; background: red ;color: white">
                 <tr>
                   <th width="20px">No</th>
                   <th>Nama</th>
@@ -123,7 +123,7 @@
                 
                 <?php
                                 
-                $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='1' ");
+                $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='2' ");
                  $no = 1;
                   while($row = mysqli_fetch_assoc($sql)){
 
@@ -134,7 +134,7 @@
                                   <td ><?php echo $row['posisi'];?></td>
                                   <td ><?php echo $row['manfaat'];?></td>
                                   
-                                  <td style="text-align: center;width: 20px;"><a href="asana.php?view=<?php echo $row['id'];?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
+                                  <td style="text-align: center;width: 20px;"><a href="pranayama.php?view=<?php echo $row['id'];?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
                             </tr>
                           <?php
                            $no++;
@@ -168,7 +168,7 @@
                               <div class="col-xs-12">
          
 
-                                  <div class="box box-success">
+                                  <div class="box box-danger">
                                     <div class="box-header with-border">
                                               <h3 ><b style="display: flex; justify-content: center;"><?= $row['nama'];?></b> </h3>
                                             </div>
@@ -180,8 +180,8 @@
                                                 <iframe  src="http://www.youtube.com/embed/<?= $row['video'];?>" frameborder="0" allowfullscreen></iframe>
                                                 </div>
                                       <?php }  ?>
-                                      <a target="_blank" href="../Images/teknik/asana/<?= $row['gambar'];?>">
-                                         <img style="max-width:70%;"  src="../Images/teknik/asana/<?= $row['gambar'];?>"  />
+                                      <a target="_blank" href="../Images/teknik/pranayama/<?= $row['gambar'];?>">
+                                         <img style="max-width:70%;"  src="../Images/teknik/pranayama/<?= $row['gambar'];?>"  />
                                       </a>
 
                                                 

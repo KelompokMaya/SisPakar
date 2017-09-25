@@ -20,8 +20,8 @@
                         </a>
                   </li>
                   <li class="treeview">
-                        <a href="login.php">
-                           <span>menu 2</span>        
+                        <a href="teknik/pranayama.php">
+                            <span>TEKNIK PRANAYAMA</span>      
                         </a>     
                   </li>
                   <li class="treeview">
@@ -52,9 +52,9 @@
                                     </a>
                               </li>
                               <li class="treeview">
-                                    <a href="#">
-                                       <span>menu 2</span>        
-                                    </a>     
+                                    <a href="teknik/pranayama.php">
+                                       <span>TEKNIK PRANAYAMA</span>      
+                                    </a>   
                               </li>
                               <li class="treeview">
                                     <a href="#">
@@ -195,12 +195,12 @@ else{ ?>
                       
                       <?php
                     $no=$_SESSION['pertanyaan'];
-                    $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit WHERE id='$no' ");
+                    $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit LIMIT 1 OFFSET $no ");
                     if(mysqli_num_rows($sql) == 0){
                       $_SESSION['pertanyaan']=0;
                     echo '
                           <div  style="display: flex; justify-content: center;" class="form-groupr">
-                          <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-success"onclick="konfirmasi(this);">MULAI</a></h1>
+                          <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-success"onclick="konfirmasi(this);">Ulangi </a></h1>
                           </div>';
                   }
                   else
