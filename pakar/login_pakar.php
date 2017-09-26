@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+  ?>
+  <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -32,9 +36,27 @@
   </div>
   <!-- /.login-logo -->
   <div style="color: black" class="login-box-body">
-    <p class="login-box-msg">Silakan Masuk </p>
+  <p class="login-box-msg">Silakan Masuk </p>
 
-    <form  role="form" action="proses/proses_login.php" method="post">
+
+  <?php
+    if(!empty($_SESSION['login2'])){
+      if($_SESSION['login2']=='gagal'){ ?> 
+
+    <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                
+               username atau password salah!!
+              </div>
+
+  <?php } 
+     
+    }
+    
+
+   ?>
+    
+    <form  role="form"  method="post">
       <div class="form-group has-feedback">
         <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -68,3 +90,48 @@
 
 </body>
 </html>
+
+<?php
+        
+        if(isset($_POST['login'])){
+          include("../database/koneksi.php");
+          
+          $username = $_POST['username'];
+          $password = md5($_POST['password']);
+          
+
+
+          
+          $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password' ");
+          $row = mysqli_fetch_assoc($query);
+          if(mysqli_num_rows($query) == 0){
+            
+            $_SESSION['login2']='gagal';
+            ?>
+          
+            <script>
+              
+                      window.location = "javascript:history.go(-1)";
+                  
+          </script>
+            <?php } else{
+               
+                $_SESSION['username']=$row['username'];
+                $_SESSION['level']='pakar';
+          
+
+                header("Location: ../pakar/index.php");
+                
+
+
+
+                
+          
+          
+          }
+          
+          
+        
+      }
+
+        ?>

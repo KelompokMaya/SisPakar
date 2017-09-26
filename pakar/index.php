@@ -53,7 +53,7 @@
      
  
      
-    <div class="box box-success ">
+    <div class="table-responsive box box-success ">
        <?php if (!isset($_GET["view"])) {
         ?>
 
@@ -62,9 +62,9 @@
             <div class="box-body">
               <a href="index.php?view=tambah" style="background-color: green;width: 100px"  class="btn btn-block btn-success">Tambah Data</a>
               </div>
-            <div class="box-body">
+            <div  class="box-body">
 
-              <table style="font-size: 15px"  id="example1" class="table table-bordered table-striped ">
+              <table style="font-size: 15px"  id="example1" class="table table-bordered table-striped  ">
 
                 <thead style="text-align: center; background: green ;color: white">
                 <tr>
@@ -178,7 +178,60 @@ $(document).ready(function(){
 });
 </script>
 
-    
+<script src="../template/bootstrap/js/bootstrapValidator.js"></script>
+ <script src="../template/bootstrap/js/bootstrapValidator.min.js"></script>
+
+      <script type="text/javascript">
+                  $(document).ready(function() {
+                      $('#tambah_data')
+                          .bootstrapValidator({
+                              
+                             
+                              fields: {
+                                  nama_penyakit: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'Nama Penyakit tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  },
+                                  asana: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'asana tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  }, 
+                                  pranayama: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'pranayama tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  },
+                                  
+                                  
+                                  mudra: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'mudra tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  },
+                                  
+                                  
+                              }
+                          });
+                      });
+              </script> 
 
 <?php include("comp/footer.php")  ?>
 

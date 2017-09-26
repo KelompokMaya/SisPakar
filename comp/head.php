@@ -2,6 +2,13 @@
 <?php
 session_start();
   include("database/koneksi.php");
+
+if (!empty($_SESSION['level'])) {
+  if($_SESSION['level']=='pakar'){
+  header("Location: pakar/index.php");
+}
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -70,13 +77,13 @@ session_start();
           
          
               <?php 
-                  if (empty($_SESSION)) { ?>
+                  if (empty($_SESSION['level'])) { ?>
               <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                   <a href="login.php" >
               <?php    
                 echo 'Log In';
-              } else
+              } else if ($_SESSION['level']=='user')
               {?>
                <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">

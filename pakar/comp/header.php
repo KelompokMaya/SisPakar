@@ -1,5 +1,18 @@
 
 <?php
+session_start();
+
+if(empty($_SESSION)){
+  header("Location: ../index.php");
+}
+
+if ($_SESSION['level']!='pakar') {
+  header("Location: ../index.php");
+}
+
+
+?>
+<?php
   include("../database/koneksi.php");
 ?>
 

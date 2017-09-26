@@ -1,3 +1,7 @@
+<?php
+session_start();
+ob_start("ob_gzhandler");
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +36,27 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Silakan Masuk </p>
 
-    <form role="form" action="proses/proses_login.php" method="post">
+  
+    <p class="login-box-msg">Silakan Masuk </p>
+    <?php
+    if(!empty($_SESSION['login'])){
+      if($_SESSION['login']=='gagal'){ ?> 
+
+    <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                
+               username atau password salah!!
+              </div>
+
+  <?php } 
+     
+    }
+    
+
+   ?>
+
+    <form role="form"  method="post">
       <div class="form-group has-feedback">
         <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -62,6 +84,7 @@
     <a href="register.php" class="text-center">Daftar menjadi member</a>
 
   </div>
+  
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
@@ -72,14 +95,50 @@
 <script src="template/bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="template/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
-</script>
+
 </body>
 </html>
+
+<?php
+        
+        if(isset($_POST['login'])){
+          include("database/koneksi.php");
+          
+          $username = $_POST['username'];
+          $password = md5($_POST['password']);
+          
+
+
+          
+          $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password' ");
+          $row = mysqli_fetch_assoc($query);
+          if(mysqli_num_rows($query) == 0){
+            
+            $_SESSION['login']='gagal';
+            ?>
+          
+            <script>
+              
+                      window.location = "javascript:history.go(-1)";
+                  
+          </script>
+            <?php } else{
+               
+                $_SESSION['username']=$row['username'];
+                $_SESSION['pertanyaan']=0;
+                $_SESSION['level']='user';
+                
+
+
+
+                header("Location: index.php");
+          
+          
+          }
+          
+          
+        
+      }
+
+        ?>
+

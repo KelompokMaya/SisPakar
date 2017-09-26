@@ -3,7 +3,7 @@
 
         <div  style="width: 100%"   class="col-lg-12">
       
-            <form  method="post" enctype="multipart/form-data"  style="left: 10px">
+            <form id="tambah_data"  method="post" enctype="multipart/form-data"  style="left: 10px">
                       
 
 
@@ -12,37 +12,38 @@
                     <div  class="col-lg-7">
                   <label >Nama Penyakit</label>
                   <input type="text" class="form-control" name="nama_penyakit">
-                </div>
-                </div>
+                  </div>
+                 </div>
                 </div>
                 <div class="form-group">
                   <div class="row">
                     <div  class="col-lg-12">
                   <label >Asana</label>
                   <textarea rows="4" class="form-control" name="asana" ></textarea>
-              </div>
-                </div>
+                   </div>
+                  </div>
                 </div>
                  <div class="form-group">
                   <div class="row">
                     <div  class="col-lg-12">
                   <label >Pranayama</label>
                   <textarea rows="4" class="form-control" name="pranayama" ></textarea>
-              </div>
-                </div>
+                    </div>
+                  </div>
                 </div>
                  <div class="form-group">
                   <div class="row">
                     <div  class="col-lg-12">
                   <label >Mudra</label>
                   <textarea rows="4" class="form-control" name="mudra" ></textarea>
-              </div>
-                </div>
+                   </div>
+                 </div>
                 </div>
               
                <div class="form-group">
                   <button type="submit" name="add" style="width: 100px" class="btn btn-success btn-block">Tambah</button>
                 </div>
+            </form>
          </div>
          </div>
 
@@ -83,3 +84,4 @@ include "../database/koneksi.php";
         }
         
       ?>
+ 
