@@ -94,7 +94,7 @@
                                   <td align="justify"><?php echo $row['mudra'];?></td>
                                   <td style="text-align: center;">
                                     
-                                    <a href="#" class="btn btn-sm btn-warning"   data-id='<?php echo $row["id_penyelenggara"]; ?>'><span  aria-hidden="true"></span> Edit </a>
+                                    <a href="index.php?view=edit&id=<?php echo $row["id"];?>" class="btn btn-sm btn-warning"><span  aria-hidden="true"></span> Edit </a>
                               
                                     <a href="index.php?view=hapus" Id='<?php echo $row["id"]; ?>' nama= '<?php echo $row["nama_penyakit"]; ?>'   class="btn btn-sm btn-danger" ><span  aria-hidden="true"></span> Hapus </a>
                                   </td>
@@ -123,6 +123,10 @@
       else if ($_GET["view"]=='hapus') 
           { 
             include("proses/hapus.php");
+        }
+        else if ($_GET["view"]=='edit') 
+          { 
+            include("proses/edit.php");
         }
         ?>
 

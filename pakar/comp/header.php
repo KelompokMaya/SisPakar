@@ -79,8 +79,8 @@ if ($_SESSION['level']!='pakar') {
         <ul class="nav navbar-nav">
           
           
-          <li class="dropdown user user-menu">
-             <a href="../logout.php" class="dropdown-toggle">keluar</a>
+          <li style="background-color: red" class="dropdown user user-menu">
+             <a id="logout" href="#" class="dropdown-toggle">keluar</a>
           </li>
 
         
