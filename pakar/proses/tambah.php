@@ -1,4 +1,4 @@
-
+<div class="box box-primary ">
 <div  class="box-body">
 
         <div  style="width: 100%"   class="col-lg-12">
@@ -41,7 +41,7 @@
                 </div>
               
                <div class="form-group">
-                  <button type="submit" name="add" style="width: 100px" class="btn btn-success btn-block">Tambah</button>
+                  <button type="submit" name="add" style="width: 100px" class="btn btn-primary btn-block">Tambah</button>
                 </div>
             </form>
          </div>

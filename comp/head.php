@@ -16,7 +16,7 @@ if (!empty($_SESSION['level'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>WEB PAKAR</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -80,7 +80,7 @@ if (!empty($_SESSION['level'])) {
                   if (empty($_SESSION['level'])) { ?>
               <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
-                  <a href="login.php" >
+                  <a href="proses/login.php" >
               <?php    
                 echo 'Log In';
               } else if ($_SESSION['level']=='user')

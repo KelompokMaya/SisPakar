@@ -3,6 +3,7 @@ $id = $_GET['id'];
 $v_edit = mysqli_query($koneksi, "SELECT * FROM data_penyakit WHERE id='$id'") or die (mysqli_error($koneksi));
 while($data = mysqli_fetch_assoc($v_edit)){
   ?>
+<div class="box box-warning ">
 <div  class="box-body">
 
         <div  style="width: 100%"   class="col-lg-12">
@@ -45,7 +46,7 @@ while($data = mysqli_fetch_assoc($v_edit)){
                 </div>
               
                <div class="form-group">
-                  <button type="submit" name="edit" style="width: 100px" class="btn btn-success btn-block">Tambah</button>
+                  <button type="submit" name="edit" style="width: 100px" class="btn btn-warning btn-block">Edit</button>
                 </div>
             </form>
          </div>
@@ -71,7 +72,7 @@ include "../database/koneksi.php";
                  echo '<script>
               setTimeout(function() {
                   swal({
-                      title: "Data Tersimpan!",
+                      title: "Data Berhasil Diubah!",
                       
                       type: "success"
                   }, function() {

@@ -114,30 +114,37 @@ if(!empty($_SESSION['level'])){ ?>
                       <?php
                     $no=$_SESSION['pertanyaan'];
                     $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit LIMIT 1 OFFSET $no ");
-                    if(mysqli_num_rows($sql) == 0){
+                    if(mysqli_num_rows($sql) == 0 ){
                       $_SESSION['pertanyaan']=0;
+                      
                     echo '
                           <div  style="display: flex; justify-content: center;" class="form-groupr">
-                          <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-success"onclick="konfirmasi(this);">Ulangi </a></h1>
+                          <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-primary"onclick="konfirmasi(this);">Ulangi </a></h1>
+                          </div>';
+                  }
+                  else if ($_SESSION['pertanyaan']==0) {
+                    echo '
+                          <div  style="display: flex; justify-content: center;" class="form-groupr">
+                          <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-success"onclick="konfirmasi(this);">Mulai </a></h1>
                           </div>';
                   }
                   else
                   {
                     while($row = mysqli_fetch_assoc($sql)){
 
-                      echo '
-                      <h3><b>Pertanyaan:</b></h3>
-                      
-                        <div  style="display: flex; justify-content: center;" class="form-groupr">
-                        <label style="justify-content: center;font-weight: bold; text-align: center; font-style: oblique;font-size: 30px;"  > Apakah Anda Menderita Penyakit '.$row['nama_penyakit'].' ?</label></div>
-                      </div> 
+                    echo '
+                          <h3><b>Pertanyaan:</b></h3>
+                          
+                            <div  style="display: flex; justify-content: center;" class="form-groupr">
+                            <label style="justify-content: center;font-weight: bold; text-align: center; font-style: oblique;font-size: 30px;"  > Apakah Anda Menderita Penyakit '.$row['nama_penyakit'].' ?</label></div>
+                          </div> 
                       
                    
         
                     
                     <form  method="post" enctype="multipart/form-data" >
                     <div  style="display: flex; justify-content: center;" class="form-groupr">
-                      <a href="index.php?view='.$_SESSION['pertanyaan'].'" style="margin:2px ; width: 100px;" class="btn btn-success">IYA   </a>
+                      <a href="index.php?view='.$row["id"].' " style="margin:2px ; width: 100px;" class="btn btn-success">IYA   </a>
                       <a href="javascript:void(0)" id="konfirmasi" style="margin:2px  ; width: 100px;" type="submit" class="btn btn-danger"onclick="konfirmasi(this);">TIDAK</a>
 
                       
@@ -148,8 +155,8 @@ if(!empty($_SESSION['level'])){ ?>
                   }
                     ?>
                   </div>
-                  </div>
-                  </div>
+               </div>
+           </div>
                   <!-- /.box-body -->
                 
 
@@ -158,10 +165,10 @@ if(!empty($_SESSION['level'])){ ?>
                       {
                 
                         $view=$_GET["view"];
-                        $sql  = mysqli_query($koneksi, "SELECT * FROM data_penyakit WHERE id = '$view' ");
+                        $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit WHERE id = '$view' ");
                         $row = mysqli_fetch_array($sql);
                         ?>
-                           <div   class="col-md-12">
+                          <div   class="col-md-12">
                            <div class="box box-success">
             
                                     <div class="box-body">
@@ -170,20 +177,43 @@ if(!empty($_SESSION['level'])){ ?>
                                         <h3><b>Penyakit : <?php echo $row['nama_penyakit']; ?></b></h3>
                                       </div>
                                       <div class="box-header with-border">
-                                            <h3 class="box-title">Diskripsi</h3>
+                                            
                                           </div>
                                           <!-- /.box-header -->
                                           <!-- form start -->
-                                          <form role="form">
+                                          <h4 class="box-title"><b>ASANA :</b></h4>
+                                          
                                             <div class="box-body">
                                               <div class="form-group">
                                               
-                                                <label align="justify"> Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.</label>
+                                                <label style="font-weight:normal;" align="justify"> <?php echo $row['asana']; ?></label>
                                               </div>
                                               
                                             </div>
                                             
-                                          </form>
+                                          
+                                          <h4 class="box-title"><b>PRANAYAMA :</b></h4>
+                                          
+                                            <div class="box-body">
+                                              <div class="form-group">
+                                              
+                                                <label style="font-weight:normal;" align="justify"> <?php echo $row['pranayama']; ?></label>
+                                              </div>
+                                              
+                                            </div>
+                                            
+                                       
+                                          <h4 class="box-title"><b>MUDRA :</b></h4>
+                                          <form role="form">
+                                            <div class="box-body">
+                                              <div class="form-group">
+                                              
+                                                <label style="font-weight:normal;" align="justify"> <?php echo $row['mudra']; ?></label>
+                                              </div>
+                                              
+                                            </div>
+                                            
+                                         
                                       
                                       <!-- /.form group -->
                                       <div  style="display: flex; justify-content: center;" class="form-groupr">
@@ -201,7 +231,7 @@ if(!empty($_SESSION['level'])){ ?>
                      
                     
                   
-                </div>
+                  </div>
              
             </section>
 
@@ -274,7 +304,7 @@ else{ ?>
                     <form role="form">
                       <div class="box-body">
                         <div class="form-group">
-                          <label align="justify"> Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.
+                          <label style="font-weight: normal;" align="justify"> Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.
                           Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.</label>
                         </div>
                         

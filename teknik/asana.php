@@ -123,7 +123,7 @@
                 
                 <?php
                                 
-                $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='1' ");
+                $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='1' order by nama asc ");
                  $no = 1;
                   while($row = mysqli_fetch_assoc($sql)){
 

@@ -123,7 +123,7 @@
                 
                 <?php
                                 
-                $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='2' ");
+                $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='2' order by nama asc ");
                  $no = 1;
                   while($row = mysqli_fetch_assoc($sql)){
 
@@ -179,10 +179,11 @@
                                       <div class="video">
                                                 <iframe  src="http://www.youtube.com/embed/<?= $row['video'];?>" frameborder="0" allowfullscreen></iframe>
                                                 </div>
-                                      <?php }  ?>
+                                      <?php } if ($row['gambar']!='') {  ?>
                                       <a target="_blank" href="../Images/teknik/pranayama/<?= $row['gambar'];?>">
                                          <img style="max-width:70%;"  src="../Images/teknik/pranayama/<?= $row['gambar'];?>"  />
                                       </a>
+                                      <?php } ?>
 
                                                 
                                     </div>

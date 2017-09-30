@@ -53,10 +53,10 @@
      
  
      
-    <div class="table-responsive box box-success ">
+    
        <?php if (!isset($_GET["view"])) {
         ?>
-
+          <div class="table-responsive box box-success ">
             
             <!-- /.box-header -->
             <div class="box-body">
@@ -80,7 +80,7 @@
                 
                 <?php
                                 
-                $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit ");
+                $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit order by nama_penyakit asc ");
                  $no = 1;
                   while($row = mysqli_fetch_assoc($sql)){
 
