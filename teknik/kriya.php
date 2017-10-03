@@ -8,7 +8,7 @@
             if (empty($_SESSION)) { ?>
                 <ul class="sidebar-menu">
                   <li class="treeview">
-                        <a href="../login.php">
+                        <a href="../proses/login.php">
                            <span>KONSULTASI</span>
                         </a> 
                   </li>
@@ -43,7 +43,7 @@
                           </a>
                     </li>
                          <li class="treeview">
-                          <a href="galery.php">
+                          <a href="../galery.php">
                              <span>GALERY</span>   
                           </a>
                     </li>    
@@ -163,8 +163,8 @@
                                                 <iframe  src="http://www.youtube.com/embed/<?= $row['video'];?>" frameborder="0" allowfullscreen></iframe>
                                                 </div>
                                       <?php } if ($row['gambar']!='') {  ?>
-                                      <a target="_blank" href="../Images/teknik/kriya/<?= $row['gambar'];?>">
-                                         <img style="max-width:70%;"  src="../Images/teknik/kriya/<?= $row['gambar'];?>"  />
+                                      <a target="_blank" href="../images/teknik/kriya/<?= $row['gambar'];?>">
+                                         <img style="max-width:70%;"  src="../images/teknik/kriya/<?= $row['gambar'];?>"  />
                                       </a>
                                       <?php } ?>
 

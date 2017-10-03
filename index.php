@@ -43,7 +43,7 @@
                                     </a>
                               </li>
                                    <li class="treeview">
-                                    <a href="teknik/galery.php">
+                                    <a href="galery.php">
                                        <span>GALERY</span>   
                                     </a>
                               </li>   

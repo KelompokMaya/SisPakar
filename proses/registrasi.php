@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Registration Page</title>
+  <title>Registrasi</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -44,14 +44,22 @@
       </div>
        
 
-    <form  method="post" enctype="multipart/form-data">
+    <form id="registrasi"  method="post" enctype="multipart/form-data">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="nama" placeholder="Full name">
         <span class="glyphicon glyphicon-edit form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="email" placeholder="Email">
+        <input type="text" class="form-control" name="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+       <div class="form-group has-feedback">
+        <input type="text" class="form-control" name="umur" placeholder="Umur">
+        <span class="glyphicon glyphicon glyphicon-calendar form-control-feedback"></span>
+      </div>
+       <div class="form-group has-feedback">
+        <textarea class="form-control" name="keluhan" placeholder="Keluhan" ></textarea>
+        <span class="glyphicon glyphicon  glyphicon-pencil form-control-feedback"></span>
       </div>
       <div style=" border-style: solid; border-width: 5px; border-color: #e6e8ed; " class="box-body">
       <div class="form-group has-feedback">
@@ -127,7 +135,9 @@ include "../database/koneksi.php";
           $nama                = $_POST['nama'];
           $email               = $_POST['email'];
           $username            = $_POST['username'];
-          $password            = md5($_POST['password']); 
+          $password            = md5($_POST['password']);
+          $umur                = $_POST['umur'];
+          $keluhan             = $_POST['keluhan'];
           $level               = 'user';
           $status              = 'nonaktif';
           
@@ -152,7 +162,7 @@ include "../database/koneksi.php";
             
           }
           else {
-            $insert = mysqli_query($koneksi, "INSERT INTO user(nama,email,username,password,level,status) VALUES('$nama','$email','$username','$password','$level','$status')") or die(mysqli_error($koneksi));
+            $insert = mysqli_query($koneksi, "INSERT INTO user(nama,email,username,password,umur,keluhan,level,status) VALUES('$nama','$email','$username','$password','$umur','$keluhan','$level','$status')") or die(mysqli_error($koneksi));
               if($insert)
               { 
                  echo '<script>
@@ -181,3 +191,87 @@ include "../database/koneksi.php";
         
       ?>
  
+ <script src="../template/bootstrap/js/bootstrapValidator.js"></script>
+ <script src="../template/bootstrap/js/bootstrapValidator.min.js"></script>
+
+      <script type="text/javascript">
+                  $(document).ready(function() {
+                      $('#registrasi')
+                          .bootstrapValidator({
+                              
+                             
+                              fields: {
+                                  nama: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'Nama  tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  },
+                                  email: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'email tidak boleh kosong'
+                                          }, 
+                                          regexp: {
+                                      regexp: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/,
+                                      message: 'format email salah'
+                                  },
+                                      }
+                                  },
+                                  umur: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'umur tidak boleh kosong'
+                                          },
+                                          
+                                  regexp: {
+                                      regexp: /^[a-zA-Z0-9_]+$/,
+                                      message: 'karakter tidak valid'
+                                  },
+                                   regexp: {
+                                      regexp: /^[0-9]/,
+                                      message: 'harus berupa angka'
+                                  }
+                                          
+                                      }
+                                  }, 
+                                  
+                                  
+                                  keluhan: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'keluhan tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  },
+                                  username: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'username tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  },
+                                  password: {
+                                     
+                                      validators: {
+                                          notEmpty: {
+                                              message: 'password tidak boleh kosong'
+                                          },
+                                          
+                                      }
+                                  },
+                                  
+                                  
+                              }
+                          });
+                      });
+              </script> 

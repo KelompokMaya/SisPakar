@@ -52,193 +52,104 @@
     
        <?php if (!isset($_GET["view"])) {
         ?>
-            <div class="table-responsive box box-primary ">
-            
-            <!-- /.box-header -->
-            <div class="box-body">
-             <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab">Teknik Asana</a></li>
-              <li><a href="#tab_2" data-toggle="tab">Teknik Pranayama</a></li>
-              <li><a href="#tab_3" data-toggle="tab">Teknik Kriya</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_1">
-                      
-                          <div class="box-body">
-
-                            <table style="font-size: 15px"  id="example1" class="table table-bordered table-striped">
-                              <thead style="text-align: center; background: #3998ad ;color: white">
-                              <tr>
-                                <th width="20px">No</th>
-                                <th>Nama</th>
-                                <th>Posisi</th>
-                                <th>Manfaat</th>
-                                <th>Gambar/Video</th>
-                                <th style="width: 100px;">Pilih</th>
-                              </tr>
-                              </thead>
-                              <tbody >
-                              
-                              <?php
-                                              
-                              $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='1' order by nama asc ");
-                               $no = 1;
-                                while($row = mysqli_fetch_assoc($sql)){
-
-                                  ?>
-                                            <tr>
-                                                <td ><?php echo $no?></td>
-                                                <td ><?php echo $row['nama'];?></td>
-                                                <td ><?php echo $row['posisi'];?></td>
-                                                <td ><?php echo $row['manfaat'];?></td>
-                                                <td style="text-align: center;width: 20px;"><a href="asana.php?view=<?php echo $row['id'];?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
-                                                
-                                                <td style="text-align: center">
+          <div class="table-responsive box box-primary ">
+                  
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                   <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Teknik Asana</a></li>
+                          <li><a href="#tab_2" data-toggle="tab">Teknik Pranayama</a></li>
+                          <li><a href="#tab_3" data-toggle="tab">Teknik Kriya</a></li>
+                        </ul>
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="tab_1">
+                                  
+                                <?php include("data_teknik/data_asana.php") ?>
                                     
-                                                    <a href="teknik.php?view=edit&id=<?php echo $row["id"];?>" class="btn btn-sm btn-warning"><span  aria-hidden="true"></span> Edit </a>
-                                              
-                                                    <a href="teknik.php?view=hapus" Id='<?php echo $row["id"]; ?>' nama= '<?php echo $row["nama"]; ?>'   class="btn btn-sm btn-danger" ><span  aria-hidden="true"></span> Hapus </a>
-                                              </td>
-                                          </tr>
-                                        <?php
-                                         $no++;
-                                    
-                                }
-                                ?>
-                              
-                              </tbody>
-                              
-                            </table>
                           </div>
-                          <!-- /.box-body -->
-                        
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_2">
-               
-            
-                          <!-- /.box-header -->
-                          <div class="box-body">
-
-                            <table style="font-size: 15px"  id="example2" class="table table-bordered table-striped">
-                              <thead style="text-align: center; background: red ;color: white">
-                              <tr>
-                                <th width="20px">No</th>
-                                <th>Nama</th>
-                                <th>Posisi</th>
-                                <th>Manfaat</th>
-                                <th>Gambar/Video</th>
-                                <th style="width: 100px;">Pilih</th>
-                              </tr>
-                              </thead>
-                              <tbody >
-                              
-                              <?php
-                                              
-                              $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='2' order by nama asc ");
-                               $no = 1;
-                                while($row = mysqli_fetch_assoc($sql)){
-
-                                  ?>
-                                            <tr>
-                                                <td ><?php echo $no?></td>
-                                                <td ><?php echo $row['nama'];?></td>
-                                                <td ><?php echo $row['posisi'];?></td>
-                                                <td ><?php echo $row['manfaat'];?></td>
-                                                <td style="text-align: center;width: 20px;"><a href="asana.php?view=<?php echo $row['id'];?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
-                                                
-                                                <td style="text-align: center;">
+                        <!-- /.tab-pane -->
+                          <div class="tab-pane" id="tab_2">
+                           
+                                 <?php include("data_teknik/data_pranayama.php") ?>
+                                      
                                     
-                                                    <a href="teknik.php?view=edit&id=<?php echo $row["id"];?>" class="btn btn-sm btn-warning"><span  aria-hidden="true"></span> Edit </a>
-                                              
-                                                    <a href="teknik.php?view=hapus" Id='<?php echo $row["id"]; ?>' nama= '<?php echo $row["nama"]; ?>'   class="btn btn-sm btn-danger" ><span  aria-hidden="true"></span> Hapus </a>
-                                              </td>
-                                          </tr>
-                                        <?php
-                                         $no++;
-                                    
-                                }
-                                ?>
-                              
-                              </tbody>
-                              
-                            </table>
                           </div>
-                        
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_3">
-                
-            
-                          <!-- /.box-header -->
-                          <div class="box-body">
-
-                            <table style="font-size: 15px"  id="example3" class="table table-bordered table-striped">
-                              <thead style="text-align: center; background: #ff851b ;color: white">
-                              <tr>
-                                <th width="20px">No</th>
-                                <th>Nama</th>
-                                <th>Posisi</th>
-                                <th>Manfaat</th>
-                                <th>Gambar/Video</th>
-                                <th style="width: 100px;">Pilih</th>
-                              </tr>
-                              </thead>
-                              <tbody >
-                              
-                              <?php
-                                              
-                              $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE teknik_id='3' order by nama asc ");
-                               $no = 1;
-                                while($row = mysqli_fetch_assoc($sql)){
-
-                                  ?>
-                                            <tr>
-                                                <td ><?php echo $no?></td>
-                                                <td ><?php echo $row['nama'];?></td>
-                                                <td ><?php echo $row['posisi'];?></td>
-                                                <td ><?php echo $row['manfaat'];?></td>
-                                                <td style="text-align: center;width: 20px;"><a href="asana.php?view=<?php echo $row['id'];?>" class="btn btn-sm btn-info"   ><span  aria-hidden="true"></span> Lihat </a></td>
-                                                
-                                                <td style="text-align: center;">
-                                    
-                                                    <a href="teknik.php?view=edit&id=<?php echo $row["id"];?>" class="btn btn-sm btn-warning"><span  aria-hidden="true"></span> Edit </a>
-                                              
-                                                    <a href="teknik.php?view=hapus" Id='<?php echo $row["id"]; ?>' nama= '<?php echo $row["nama"]; ?>'   class="btn btn-sm btn-danger" ><span  aria-hidden="true"></span> Hapus </a>
-                                              </td>
-                                          </tr>
-                                        <?php
-                                         $no++;
-                                    
-                                }
-                                ?>
-                              
-                              </tbody>
-                              
-                            </table>
+                        <!-- /.tab-pane -->
+                          <div class="tab-pane" id="tab_3">
+                            
+                                  <?php include("data_teknik/data_kriya.php") ?>
+                                     
                           </div>
-
-              </div>
-              <!-- /.tab-pane -->
-            </div>
-            <!-- /.tab-content -->
-          </div>
-              </div>
+                        <!-- /.tab-pane -->
+                      </div>
+                      <!-- /.tab-content -->
+                    </div>
+                  </div>
 
       
             
             <?php
-      }  
-      else if ($_GET["view"]=='hapus') 
-          { 
-            include("proses/hapus_teknik.php");
-        }
-        else if ($_GET["view"]=='edit') 
-          { 
-            include("proses/edit_teknik.php");
-        }
-        ?>
+          }  
+            else if ($_GET["view"]=='hapus') 
+              { 
+                include("proses/hapus_teknik.php");
+            }
+            else if ($_GET["view"]=='edit') 
+              { 
+                include("proses/edit_teknik.php");
+            }else
+                      {
+                
+                $view=$_GET["view"];
+                        
+
+                 $sql = mysqli_query($koneksi, "SELECT * FROM bagian_teknik WHERE id='$view' ");
+                 
+                  $row = mysqli_fetch_assoc($sql); 
+
+                    ?>        
+                    <div class="table-responsive box box-primary ">
+                  
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <div class="box-header with-border">
+                                              <h3 ><b style="display: flex; justify-content: center;"><?= $row['nama'];?></b> </h3>
+                                            </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body text-center">
+                                      <?php if ($row['video']!='') {
+                                       ?>
+                                      <div class="video">
+                                                <iframe  src="http://www.youtube.com/embed/<?= $row['video'];?>" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                      <?php }
+                                      if ($row['teknik_id']=='1') {
+                                          $teknik='asana';
+                                        }
+                                        elseif ($row['teknik_id']=='2') {
+                                          $teknik='pranayama';
+                                        }else{
+                                          $teknik='kriya';
+                                        }
+                                      ?>
+                                      <a target="_blank" href="../Images/teknik/pranayama/<?= $row['gambar'];?>">
+                                         <img style="max-width:70%;"  src="../images/teknik/<?= $teknik;?>/<?= $row['gambar'];?>"  />
+                                      </a>
+
+                                                
+                                    </div>
+
+                  </div>
+                              
+                          <?php
+                          
+                      
+                  
+                  }
+                  
+
+            ?>
 
           </div>
           

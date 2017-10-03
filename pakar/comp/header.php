@@ -51,7 +51,26 @@ if ($_SESSION['level']!='pakar') {
   
 
 
+<style type="text/css">
+  .video {
+  text-align: center;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 20px;
+  height: 0;
+  overflow: hidden;
+}
 
+.video iframe,  
+.video object,  
+.video embed {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+}
+</style>
  
 </head>
 <body  class="hold-transition skin-green sidebar-mini">

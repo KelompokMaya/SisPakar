@@ -92,7 +92,7 @@ session_start();
                   if (empty($_SESSION)) { ?>
               <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
-                  <a href="../login.php" >
+                  <a href="../proses/login.php" >
               <?php    
                 echo 'Log In';
               } else

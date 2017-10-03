@@ -32,7 +32,7 @@
                       
                       type: "success"
                   }, function() {
-                      window.location = "teknik.php";
+                      window.location.href="javascript:history.go(-1)";
                   });
               });
           </script>';
