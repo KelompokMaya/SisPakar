@@ -1,12 +1,12 @@
-
 <?php
 session_start();
   include("database/koneksi.php");
 
 if (!empty($_SESSION['level'])) {
-  if($_SESSION['level']=='pakar'){
+  if($_SESSION['level']!='user'){
   header("Location: pakar/index.php");
 }
+
 }
 
 ?>
@@ -48,7 +48,7 @@ if (!empty($_SESSION['level'])) {
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<img src="Images/Header.png" width="100%" />
+<img src="images/header.png" width="100%" />
 <div class="wrapper">
 
 

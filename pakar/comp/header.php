@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -78,10 +77,38 @@ if ($_SESSION['level']!='pakar') {
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           
-          
-          <li style="background-color: red" class="dropdown user user-menu">
-             <a id="logout" href="#" class="dropdown-toggle">keluar</a>
+           <li class="dropdown user user-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="../template/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                    <span class="hidden-xs">
+              <?php echo $_SESSION['username'];  ?></span> 
+
+            </a>
+
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  <?php echo $_SESSION['username']; ?>
+                  <small>PAKAR</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profil</a>
+                </div>
+                <div class="pull-right">
+                  <a id="logout" href="#" id="../logout" class="btn btn-default btn-flat">Keluar</a>
+                </div>
+              </li>
+            </ul>
           </li>
+
 
         
             
@@ -95,4 +122,4 @@ if ($_SESSION['level']!='pakar') {
     <section class="sidebar">
       <!-- Sidebar user panel -->
       
-      
+        

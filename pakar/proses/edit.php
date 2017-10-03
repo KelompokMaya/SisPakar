@@ -39,8 +39,8 @@ while($data = mysqli_fetch_assoc($v_edit)){
                  <div class="form-group">
                   <div class="row">
                     <div  class="col-lg-12">
-                  <label >Mudra</label>
-                  <textarea rows="4" class="form-control"  name="mudra" ><?php echo $data['mudra']; ?></textarea>
+                  <label >Kriya</label>
+                  <textarea rows="4" class="form-control"  name="kriya" ><?php echo $data['kriya']; ?></textarea>
                    </div>
                  </div>
                 </div>
@@ -62,11 +62,11 @@ include "../database/koneksi.php";
           $nama_penyakit       = $_POST['nama_penyakit'];
           $asana               = $_POST['asana'];
           $pranayama           = $_POST['pranayama'];
-          $mudra               = $_POST['mudra'];
+          $kriya               = $_POST['kriya'];
           
          
           
-            $update = mysqli_query($koneksi, " UPDATE data_penyakit set nama_penyakit='$nama_penyakit', asana='$asana', pranayama='$pranayama', mudra='$mudra' WHERE id='$id' ") or die(mysqli_error($koneksi));
+            $update = mysqli_query($koneksi, " UPDATE data_penyakit set nama_penyakit='$nama_penyakit', asana='$asana', pranayama='$pranayama', kriya='$kriya' WHERE id='$id' ") or die(mysqli_error($koneksi));
               if($update)
               { 
                  echo '<script>

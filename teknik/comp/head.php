@@ -1,4 +1,3 @@
-
 <?php
 session_start();
   include("../database/koneksi.php");
@@ -61,7 +60,7 @@ session_start();
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<img src="../Images/Header.png" width="100%" />
+<img src="../images/header.png" width="100%" />
 <div class="wrapper">
 
 

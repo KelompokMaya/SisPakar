@@ -3,26 +3,25 @@
         <li class="header">MENU</li>
         <li class="active treeview">
           <a href="index.php">
-            <i class="fa fa-dashboard"></i> <span>Data Penyakit</span>
+            <i class="fa fa-server"></i> <span>Data Penyakit</span>
             
           </a>
           
         </li>
-        
-        
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i>
-            <span>Teknik</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+          <a href="input_teknik.php">
+            <i class="fa fa-pencil-square-o "></i> <span>Input Data Teknik</span>
+            
           </a>
-          <ul class="treeview-menu">
-            <li><a href="status-penyelenggaraan.php"><i class="fa fa-hourglass-2"></i> Asana</a></li>
-            <li><a href="penyelenggara-saya.php"><i class="fa fa-bar-chart"></i>Pranayama</a></li>
-          </ul>
-        </li>
+          
+        </li>       
+         <li class="treeview">
+          <a href="teknik.php">
+            <i class="fa fa-gear "></i> <span>Teknik</span>
+            
+          </a>
+          
+        </li>  
         
       </ul>
     </section>
@@ -91,7 +90,7 @@
                                   <td align="justify"><?php echo $row['asana'];?></td>
                                   <td align="justify"><?php echo $row['pranayama'];?></td>
                                   
-                                  <td align="justify"><?php echo $row['mudra'];?></td>
+                                  <td align="justify"><?php echo $row['kriya'];?></td>
                                   <td style="text-align: center;">
                                     
                                     <a href="index.php?view=edit&id=<?php echo $row["id"];?>" class="btn btn-sm btn-warning"><span  aria-hidden="true"></span> Edit </a>
@@ -221,11 +220,11 @@ $(document).ready(function(){
                                   },
                                   
                                   
-                                  mudra: {
+                                  kriya: {
                                      
                                       validators: {
                                           notEmpty: {
-                                              message: 'mudra tidak boleh kosong'
+                                              message: 'kriya tidak boleh kosong'
                                           },
                                           
                                       }

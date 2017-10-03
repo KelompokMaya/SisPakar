@@ -34,50 +34,52 @@ ob_start("ob_gzhandler");
   <div class="login-logo">
     <a href="#"><b>SISTEM</b>PAKAR</a>
   </div>
+ 
   <!-- /.login-logo -->
-  <div class="login-box-body">
+  <div class="box login-box-body">
 
-  
+
     <p class="login-box-msg">Silakan Masuk </p>
    
 
-    <div id="alert_login" style="display: none;" class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                
-               username atau password salah!!
-              </div>
+            <div id="alert_login" style="display: none;" class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  username atau password salah!!
+            </div>
 
  
 
-    <form role="form"  method="post">
-      <div class="form-group has-feedback">
-        <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" name="password" class="form-control" placeholder="Password" required autofocu>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Masuk</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
-    <div class="social-auth-links text-center">
-        
-          <a href="pakar/login_pakar.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-user"></i> Masuk Sebagai Pakar</a>
-          
-        </div>
+            <form role="form"  method="post">
+              <div class="form-group has-feedback">
+                <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+              </div>
+              <div class="form-group has-feedback">
+                <input type="password" name="password" class="form-control" placeholder="Password" required autofocu>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+              </div>
+              <div class="row">
+                
+                <!-- /.col -->
+                <div class="col-xs-4">
+                  <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Masuk</button>
+                </div>
+                <!-- /.col -->
+              </div>
+            </form>
+
+            <div class="social-auth-links text-center">
+                <a href="../pakar/login_pakar.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-user"></i> Masuk Sebagai Pakar</a>
+            </div>
 
     
-    <a href="registrasi.php" class="text-center">Daftar menjadi member</a>
+            <a href="registrasi.php" class="text-center">Daftar menjadi member</a>
+            <div style="display: none;" id="loading" class="overlay">
+                <i class="fa fa fa-circle-o-notch fa-spin"></i>
+            </div>
 
   </div>
-  
+
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
@@ -103,7 +105,7 @@ ob_start("ob_gzhandler");
 
 
           
-          $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password' ");
+          $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password' AND status='aktif' ");
           $row = mysqli_fetch_assoc($query);
           if(mysqli_num_rows($query) == 0 ){
             
@@ -114,15 +116,23 @@ ob_start("ob_gzhandler");
 
 
              } else if ($row['level']=='user') {
+
+              
                
                 $_SESSION['username']=$row['username'];
                 $_SESSION['pertanyaan']=0;
                 $_SESSION['level']='user';
                 
 
+              echo ' <script type="text/javascript">
+                          $("#loading").css("display","block");
+                            $(window).load(function() { $("#loading").fadeOut(4300); })
 
+                            setTimeout(function () {
+                            window.location.href = "../index.php";  }, 1000);
+                          </script> ';
 
-                header("Location: index.php");
+              
           
           
           } else{

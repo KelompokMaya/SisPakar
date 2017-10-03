@@ -34,8 +34,8 @@
                  <div class="form-group">
                   <div class="row">
                     <div  class="col-lg-12">
-                  <label >Mudra</label>
-                  <textarea rows="4" class="form-control" name="mudra" ></textarea>
+                  <label >Kriya</label>
+                  <textarea rows="4" class="form-control" name="kriya" ></textarea>
                    </div>
                  </div>
                 </div>
@@ -56,11 +56,11 @@ include "../database/koneksi.php";
           $nama_penyakit       = $_POST['nama_penyakit'];
           $asana               = $_POST['asana'];
           $pranayama           = $_POST['pranayama'];
-          $mudra               = $_POST['mudra'];
+          $kriya               = $_POST['kriya'];
           
          
           
-            $insert = mysqli_query($koneksi, "INSERT INTO data_penyakit(nama_penyakit,asana,pranayama,mudra) VALUES('$nama_penyakit','$asana','$pranayama','$mudra')") or die(mysqli_error($koneksi));
+            $insert = mysqli_query($koneksi, "INSERT INTO data_penyakit(nama_penyakit,asana,pranayama,kriya) VALUES('$nama_penyakit','$asana','$pranayama','$kriya')") or die(mysqli_error($koneksi));
               if($insert)
               { 
                  echo '<script>

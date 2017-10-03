@@ -12,27 +12,7 @@
                            <span>KONSULTASI</span>
                         </a> 
                   </li>
-                  <li class="  treeview">
-                        <a href="asana.php">
-                           <span>TEKNIK ASANA</span>
-                        </a>
-                  </li>
-                  <li class="active treeview">
-                        <a href="pranayama.php">
-                           <span>TEKNIK PRANAYAMA</span>        
-                        </a>     
-                  </li>
-                  <li class="treeview">
-                        <a href="login.php">
-                           <span>menu 3</span>
-                        </a>
-                  </li>
-                       <li class="treeview">
-                        <a href="login.php">
-                           <span>menu 4</span>   
-                        </a>
-                  </li>    
-                </ul>
+                 
               <?php
               } else
               {?>
@@ -44,28 +24,31 @@
                                        <span>KONSULTASI</span>
                                     </a> 
                               </li>
-                              <li class=" treeview">
-                                    <a href="asana.php">
-                                       <span>TEKNIK ASANA</span>
-                                    </a>
-                              </li>
-                              <li class="active treeview">
-                                    <a href="pranayama.php">
-                                       <span>TEKNIK PRANAYAMA</span>        
-                                    </a>     
-                              </li>
-                              <li class="treeview">
-                                    <a href="#">
-                                       <span>menu 3</span>
-                                    </a>
-                              </li>
-                                   <li class="treeview">
-                                    <a href="#">
-                                       <span>menu 4</span>   
-                                    </a>
-                              </li>   
-                  </ul>
+                             
                     <?php }  ?>
+
+                     <li class="  treeview">
+                        <a href="asana.php">
+                           <span>TEKNIK ASANA</span>
+                        </a>
+                    </li>
+                    <li class="active treeview">
+                          <a href="pranayama.php">
+                             <span>TEKNIK PRANAYAMA</span>  
+                             </a>     
+                    </li>
+                    <li class="treeview">
+                          <a href="kriya.php">
+                             <span>TEKNIK KRYA</span>
+                          </a>
+                    </li>
+                         <li class="treeview">
+                          <a href="galery.php">
+                             <span>GALERY</span>   
+                          </a>
+                    </li>    
+                </ul>
+
 
 
 
@@ -83,7 +66,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Teknik Asana</a></li>
+        <li><a href="#">Teknik pranayama</a></li>
         
       </ol>
     </section>

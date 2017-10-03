@@ -7,45 +7,26 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
 
        <?php 
-            if (empty($_SESSION)) { ?>
-                <ul class="sidebar-menu">
-                  <li class="treeview">
-                        <a href="login.php">
-                           <span>KONSULTASI</span>
-                        </a> 
-                  </li>
-                  <li class="treeview">
-                        <a href="teknik/asana.php">
-                           <span>TEKNIK ASANA</span>
-                        </a>
-                  </li>
-                  <li class="treeview">
-                        <a href="teknik/pranayama.php">
-                            <span>TEKNIK PRANAYAMA</span>      
-                        </a>     
-                  </li>
-                  <li class="treeview">
-                        <a href="login.php">
-                           <span>menu 3</span>
-                        </a>
-                  </li>
-                       <li class="treeview">
-                        <a href="login.php">
-                           <span>menu 4</span>   
-                        </a>
-                  </li>    
-                </ul>
-              <?php
-              } else
-              {?>
-               <!-- User Account: style can be found in dropdown.less -->
-                <ul class="sidebar-menu">
-                    <li class="header">MAIN NAVIGATION</li>
-                     <li class="active treeview">
+                  if (empty($_SESSION)) { ?>
+                         <ul class="sidebar-menu">
+                               <li class="treeview">
+                                    <a href="proses/login.php">
+                                       <span>KONSULTASI</span>
+                                    </a> 
+                             </li>
+                  <?php
+                  } else
+                  {?>
+                        <ul class="sidebar-menu">
+                          <li class="header">MAIN NAVIGATION</li>
+                              <li class="active treeview">
                                     <a href="index.php">
                                        <span>KONSULTASI</span>
                                     </a> 
                               </li>
+                  <?php }  ?>
+                  
+               
                               <li class="treeview">
                                     <a href="teknik/asana.php">
                                        <span>TEKNIK ASANA</span>
@@ -57,17 +38,17 @@
                                     </a>   
                               </li>
                               <li class="treeview">
-                                    <a href="#">
-                                       <span>menu 3</span>
+                                    <a href="teknik/kriya.php">
+                                       <span>TEKNIK KRIYA</span>
                                     </a>
                               </li>
                                    <li class="treeview">
-                                    <a href="#">
-                                       <span>menu 4</span>   
+                                    <a href="teknik/galery.php">
+                                       <span>GALERY</span>   
                                     </a>
                               </li>   
                   </ul>
-                    <?php }  ?>
+                   
 
 
 
@@ -77,88 +58,88 @@
   </aside>
 
 
-  <?php
-if(!empty($_SESSION['level'])){ ?>
+          <?php
+          if(!empty($_SESSION['level'])){ ?>
 
-<div  class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Sistem Pakar
-        <small>Konsultasi</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Konsultasi</li>
-      </ol>
-    </section>
+            <div  class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                  <h1>
+                    Sistem Pakar
+                    <small>Konsultasi</small>
+                  </h1>
+                  <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Konsultasi</li>
+                  </ol>
+                </section>
 
-    <!-- Main content -->
-    <section   class="content">
-      <!-- Small boxes (Stat box) -->
-      <div  class="row">
-        
-       
-        <?php
-        if(!isset($_GET["view"]))
-            {
-              
-              ?>
-               <div   class="col-md-12">
-                <div  class="box box-danger">
-                  
-                  <div id="next" class="box-body">
-                    <!-- Date dd/mm/yyyy -->
-                    <div  class="form-group">
-                      
-                      <?php
-                    $no=$_SESSION['pertanyaan'];
-                    $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit LIMIT 1 OFFSET $no ");
-                    if(mysqli_num_rows($sql) == 0 ){
-                      $_SESSION['pertanyaan']=0;
-                      
-                    echo '
-                          <div  style="display: flex; justify-content: center;" class="form-groupr">
-                          <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-primary"onclick="konfirmasi(this);">Ulangi </a></h1>
-                          </div>';
-                  }
-                  else if ($_SESSION['pertanyaan']==0) {
-                    echo '
-                          <div  style="display: flex; justify-content: center;" class="form-groupr">
-                          <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-success"onclick="konfirmasi(this);">Mulai </a></h1>
-                          </div>';
-                  }
-                  else
-                  {
-                    while($row = mysqli_fetch_assoc($sql)){
-
-                    echo '
-                          <h3><b>Pertanyaan:</b></h3>
-                          
-                            <div  style="display: flex; justify-content: center;" class="form-groupr">
-                            <label style="justify-content: center;font-weight: bold; text-align: center; font-style: oblique;font-size: 30px;"  > Apakah Anda Menderita Penyakit '.$row['nama_penyakit'].' ?</label></div>
-                          </div> 
-                      
-                   
-        
+                <!-- Main content -->
+                <section   class="content">
+                  <!-- Small boxes (Stat box) -->
+                  <div  class="row">
                     
-                    <form  method="post" enctype="multipart/form-data" >
-                    <div  style="display: flex; justify-content: center;" class="form-groupr">
-                      <a href="index.php?view='.$row["id"].' " style="margin:2px ; width: 100px;" class="btn btn-success">IYA   </a>
-                      <a href="javascript:void(0)" id="konfirmasi" style="margin:2px  ; width: 100px;" type="submit" class="btn btn-danger"onclick="konfirmasi(this);">TIDAK</a>
+                   
+                    <?php
+                    if(!isset($_GET["view"]))
+                        {
+                          
+                          ?>
+                           <div   class="col-md-12">
+                            <div  class="box box-danger">
+                              
+                              <div id="next" class="box-body">
+                                <!-- Date dd/mm/yyyy -->
+                                <div  class="form-group">
+                                  
+                                  <?php
+                                $no=$_SESSION['pertanyaan'];
+                                $sql = mysqli_query($koneksi, "SELECT * FROM data_penyakit LIMIT 1 OFFSET $no ");
+                                if(mysqli_num_rows($sql) == 0 ){
+                                  $_SESSION['pertanyaan']=0;
+                                  
+                                echo '
+                                      <div  style="display: flex; justify-content: center;" class="form-groupr">
+                                      <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-primary"onclick="konfirmasi(this);">Ulangi </a></h1>
+                                      </div>';
+                              }
+                              else if ($_SESSION['pertanyaan']==0) {
+                                echo '
+                                      <div  style="display: flex; justify-content: center;" class="form-groupr">
+                                      <h1><a  href="javascript:void(0)" id="konfirmasi" style="font-weight: bold;padding-top: 15px;margin:2px  ; font-size: 30px; width: 150px; height: 70px" type="submit" class="btn btn-success"onclick="konfirmasi(this);">Mulai </a></h1>
+                                      </div>';
+                              }
+                              else
+                              {
+                                while($row = mysqli_fetch_assoc($sql)){
 
-                      
-                    </div>
-                    </form>';
+                                echo '
+                                      <h3><b>Pertanyaan:</b></h3>
+                                      
+                                        <div  style="display: flex; justify-content: center;" class="form-groupr">
+                                        <label style="justify-content: center;font-weight: bold; text-align: center; font-style: oblique;font-size: 30px;"  > Apakah Anda Menderita Penyakit '.$row['nama_penyakit'].' ?</label></div>
+                                      </div> 
+                                  
+                               
+                    
+                                
+                                <form  method="post" enctype="multipart/form-data" >
+                                <div  style="display: flex; justify-content: center;" class="form-groupr">
+                                  <a href="index.php?view='.$row["id"].' " style="margin:2px ; width: 100px;" class="btn btn-success">IYA   </a>
+                                  <a href="javascript:void(0)" id="konfirmasi" style="margin:2px  ; width: 100px;" type="submit" class="btn btn-danger"onclick="konfirmasi(this);">TIDAK</a>
 
-                    }
-                  }
-                    ?>
-                  </div>
-               </div>
-           </div>
-                  <!-- /.box-body -->
-                
+                                  
+                                </div>
+                                </form>';
+
+                                }
+                              }
+                                ?>
+                              </div>
+                           </div>
+                       </div>
+                              <!-- /.box-body -->
+                            
 
           <?php } 
                   else
@@ -203,12 +184,12 @@ if(!empty($_SESSION['level'])){ ?>
                                             </div>
                                             
                                        
-                                          <h4 class="box-title"><b>MUDRA :</b></h4>
+                                          <h4 class="box-title"><b>KRIYA :</b></h4>
                                           <form role="form">
                                             <div class="box-body">
                                               <div class="form-group">
                                               
-                                                <label style="font-weight:normal;" align="justify"> <?php echo $row['mudra']; ?></label>
+                                                <label style="font-weight:normal;" align="justify"> <?php echo $row['kriya']; ?></label>
                                               </div>
                                               
                                             </div>

@@ -129,6 +129,7 @@ include "../database/koneksi.php";
           $username            = $_POST['username'];
           $password            = md5($_POST['password']); 
           $level               = 'user';
+          $status              = 'nonaktif';
           
          
           $cek_username= mysqli_query($koneksi,"  SELECT username FROM user WHERE username ='$username'") or die(mysqli_error($koneksi));
@@ -151,7 +152,7 @@ include "../database/koneksi.php";
             
           }
           else {
-            $insert = mysqli_query($koneksi, "INSERT INTO user(nama,email,username,password,level) VALUES('$nama','$email','$username','$password','$level')") or die(mysqli_error($koneksi));
+            $insert = mysqli_query($koneksi, "INSERT INTO user(nama,email,username,password,level,status) VALUES('$nama','$email','$username','$password','$level','$status')") or die(mysqli_error($koneksi));
               if($insert)
               { 
                  echo '<script>
